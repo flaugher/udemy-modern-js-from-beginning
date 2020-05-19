@@ -10,6 +10,10 @@ Open an HTML file and click the Live Server link on the lower right.
 
 127.0.0.1:5500/js_sandbox/index.html
 
+## Projects
+
+Section 4: DOM Projects - Although I have a folder for each section, all of my work is in the .html and .js files in the 4_1_project_files folder since the work was cummulative.
+
 ## Techniques
 
 3_3_project_files/js_sandbox/index.html:
