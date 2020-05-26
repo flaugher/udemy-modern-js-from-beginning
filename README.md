@@ -57,3 +57,16 @@ At 10:59 into lesson 31, he goes over select elements which I'll be using.  He h
 ### Event delegation
 
 Event delegation is where you put an event listener of a parent of what you're looking for and then creating a condition to find the target and then perform the action you want on that target.
+
+### Callbacks
+
+A callback is just a function that can be passed into another function and then called by that function.
+
+### Comments
+
+Very good class.  It would be nice if there were a table of contents that list the purpose of each lesson for easy reference.
+
+### Resources
+
+He uses [skeleton](http://getskeleton.com/) for the CSS in the Ajax section.
+He uses [JSONPlaceholder](https://jsonplaceholder.typicode.com/) for the Ajax section.
