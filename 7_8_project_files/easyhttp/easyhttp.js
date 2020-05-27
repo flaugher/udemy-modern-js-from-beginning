@@ -8,8 +8,6 @@ easyHTTP.prototype.get = function (url, callback) {
   // This replaces "xhr.open..."
   this.http.open('GET', url, true);
 
-  this.http.send();
-
   // Create copy of this that we can read inside the onload function
   let self = this;
   this.http.onload = function () {
@@ -32,10 +30,55 @@ easyHTTP.prototype.get = function (url, callback) {
       callback("Error: " + self.http.status);
     }
   }
+
+  this.http.send();
 }
 
 // Make an HTTP POST request
+easyHTTP.prototype.post = function (url, data, callback) {
+  this.http.open('POST', url, true);
+
+  // With POSTs you must tell the server what type of data you're sending
+  this.http.setRequestHeader('Content-type', 'application/json');
+
+  let self = this;
+  // When the page loads ('onload'), run the callback function
+  this.http.onload = function () {
+    // We don't need to check the status like with GET since we're sending data
+    callback(null, self.http.responseText);
+  }
+
+  this.http.send(JSON.stringify(data));
+}
 
 // Make an HTTP PUT request
+// Just like POST above except for the function name
+easyHTTP.prototype.put = function (url, data, callback) {
+  this.http.open('PUT', url, true);
+
+  this.http.setRequestHeader('Content-type', 'application/json');
+
+  let self = this;
+  this.http.onload = function () {
+    callback(null, self.http.responseText);
+  }
+
+  this.http.send(JSON.stringify(data));
+}
 
 // Make an HTTP DELETE request
+easyHTTP.prototype.delete = function (url, callback) {
+  this.http.open('DELETE', url, true);
+
+  let self = this;
+  this.http.onload = function () {
+    if (self.http.status === 200) {
+      // The response will be an empty object since we're deleting a post
+      callback(null, "Post deleted!");
+    } else {
+      callback("Error: " + self.http.status);
+    }
+  }
+
+  this.http.send();
+}
