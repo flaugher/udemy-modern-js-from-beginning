@@ -1,3 +1,4 @@
+// Using async makes the code return a promise.
 // async function myFunc() {
 //   const promise = new Promise((resolve, reject) => {
 //     setTimeout(() => resolve('Hello'), 1000);

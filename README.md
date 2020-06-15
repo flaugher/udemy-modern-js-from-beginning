@@ -31,7 +31,7 @@ You can use the older document.getElementById(), but document.querySelector() is
     // Change label content:
     document.getElementById('someid').innerHTML = 'new label content'
 
-### <select> elements
+### select elements
 
 At 10:59 into lesson 31, he goes over select elements which I'll be using.  He had to comment out materialize.js in order to do this example.
 
@@ -64,11 +64,35 @@ Event delegation is where you put an event listener of a parent of what you're l
 
 A callback is just a function that can be passed into another function and then called by that function.
 
-### Comments
+### Fetch API
 
-Very good class.  It would be nice if there were a table of contents that list the purpose of each lesson for easy reference.
+I asked a [question](t.ly/X4wt) about support for the Fetch API and was told that if you use it with Promises, there can be issues with error-handling.  The teaching assistant says he uses [axios](https://github.com/axios/axios).  See Resources below.
+
+### Promises
+
+Promises don't work in ES5 environments unless you use either the Bluebird or Q promise libraries.
+
+ES6 supports promises natively as well as the fat arrow (=>) notation.
+
+## Async & Await
+
+He's not sure about compatiblity of these two features (this video is about two years old now so things may have changed).  He recommends compiling code down into ES6 using Webpack and Babel to use them.
+
 
 ### Resources
 
 He uses [skeleton](http://getskeleton.com/) for the CSS in the Ajax section.
 He uses [JSONPlaceholder](https://jsonplaceholder.typicode.com/) for the Ajax section.
+[Top JavaScript Libraries for Making AJAX Calls](https://dzone.com/articles/top-javascript-libraries-for-making-ajax-calls)
+[5 best libraries for making AJAX calls in React](https://hashnode.com/post/5-best-libraries-for-making-ajax-calls-in-react-cis8x5f7k0jl7th53z68s41k1)
+[Here are the most popular ways to make an HTTP request in JavaScript](https://www.freecodecamp.org/news/here-is-the-most-popular-ways-to-make-an-http-request-in-javascript-954ce8c95aaa/)
+JavaScript.Info: [Promises](https://javascript.info/promise-basics)
+[JavaScript Promises for Dummies](https://scotch.io/tutorials/javascript-promises-for-dummies)
+
+## Comments
+
+Very good class.  It would be nice if there were a table of contents that list the purpose of each lesson for easy reference.
+
+I found explanation of Promises weak.  Instead of just typing in code, he could have explained what each line is actually doing to reinforce the concept.  The mistake all instructors make is that the don't realize that most students don't sit down and watch these lessons all in one "fell swoop".  There may be a couple of days between lessons and something you understood two lessons/days ago you've kind of forgotten.  The instructor doesn't have this problem because he understands the material.  Something that we watch two lessons ago a couple of days ago that made sense then no longer makes sense now so it needs to be repeated.  By the time I reached the last lesson in Section 7, all the code just looked like a bunch of gobblety-gook.
+
+Would have been nice to spend time talking about CORS policy errors. I ran into that problem as soon as I tried to apply what I learned about making XmlHTTPRequests.

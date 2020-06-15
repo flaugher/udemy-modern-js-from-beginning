@@ -1,0 +1,57 @@
+
+Table of Contents
+
+3_2:  Examining the Document object
+3_3:  DOM selectors for single elements
+3_4:  DOM selectors for multiple elements
+3_5:  Traversing the DOM
+3_6:  Creating elements
+3_7:  Removing and replacing elements
+3_8:  Event listeners and the event object
+3_9:  Mouse events
+3_10: Keyboard and input events
+3_11: Event bubbling and delegation
+3_12: Local and session storage
+4_1:  Task list: UI and add task items
+4_2:  Task list: Delete and filter tasks
+4_3:  Task list: Persist to local storage
+4_4:  Loan calc: Build the UI
+4_5:  Loan calc: Calculate and error
+4_6:  Loand calc: Loader and user experience
+4_7:  Number guesser: Build the UI
+4_8:  Number guesser: Validation and winning case
+4_9:  Number guesser: Lose case and game over
+4_10: Number guesser: Play again
+5_1:  Constructors and the 'this' keyword
+5_2:  Built-in constructors
+5_3:  Prototypes explained
+5_4:  Prototypal inheritance
+5_5:  Using Object.create
+5_6:  ES6 classes
+5_7:  Sub classes
+6_1:  Build the book list UI
+6_2:  Add book to list
+6_3:  Validation and alert
+6_4:  Delete book from list
+6_5:  Convert to ES6 classes
+6_6:  Bonus - Add local storage
+7_3:  XHR object methods and working with text
+7_4:  Working with Ajax and JSON
+7_5:  Data from an external API (Chuck Norris project)
+7_6:  REST APIs and HTTP requests
+7_7:  Callback functions
+7_8:  Custom HTTP library (Ajax with callbacks) - pt. 1
+7_9:  Custom HTTP library (Ajax with callbacks) - pt. 2  (how to do all CRUD operations)
+7_10: ES6 promises
+7_11: The Fetch API
+7_12: Error-handling with Fetch
+7_13: Arrow functions
+7_14: Custom HTTP library (Fetch with Promises) - pt. 3
+7_15: Async and Await
+7_16: Custom HTTP library (Fetch with Async/Await) - pt. 4
+8_1:  Github Finder (pt. 1) - Intro and UI
+8_2:  Github Finder (pt. 2) - Fetching profile data
+8_3:  Github Finder (pt. 3) - Display the profile
+8_3:  Github Finder (pt. 4) - Show alert message
+8_4:  Github Finder (pt. 5) - Fetch and display repos
+

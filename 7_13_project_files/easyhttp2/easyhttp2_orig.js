@@ -8,24 +8,19 @@
  *
  **/
 
-// Create an ES6 class
-class EasyHTTP {
-
-  // Make an HTTP GET request
+ class EasyHTTP {
+   
+  // Make an HTTP GET Request 
   get(url) {
     return new Promise((resolve, reject) => {
       fetch(url)
-        // First promise is response.
-        // Remember that is is equivalent to 'function(res) { return res.json }'
-        .then(res => res.json())
-        // Second promise is data
-        .then(data => resolve(data))
-        // Include error-handler
-        .catch(err => reject(err));
+      .then(res => res.json())
+      .then(data => resolve(data))
+      .catch(err => reject(err));
     });
   }
 
-  // Make an HTTP POST request
+  // Make an HTTP POST Request
   post(url, data) {
     return new Promise((resolve, reject) => {
       fetch(url, {
@@ -35,14 +30,14 @@ class EasyHTTP {
         },
         body: JSON.stringify(data)
       })
-        .then(res => res.json())
-        .then(data => resolve(data))
-        .catch(err => reject(err));
+      .then(res => res.json())
+      .then(data => resolve(data))
+      .catch(err => reject(err));
     });
   }
 
-  // Make an HTTP PUT request
-  put(url, data) {
+   // Make an HTTP PUT Request
+   put(url, data) {
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: 'PUT',
@@ -51,24 +46,27 @@ class EasyHTTP {
         },
         body: JSON.stringify(data)
       })
-        .then(res => res.json())
-        .then(data => resolve(data))
-        .catch(err => reject(err));
+      .then(res => res.json())
+      .then(data => resolve(data))
+      .catch(err => reject(err));
     });
   }
 
-  // Make an HTTP DELETE request
-  delete(url, data) {
+  // Make an HTTP DELETE Request
+  delete(url) {
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json'
-        },
+        }
       })
-        .then(res => res.json())
-        .then(() => resolve("Resource deleted."))
-        .catch(err => reject(err));
+      .then(res => res.json())
+      .then(() => resolve('Resource Deleted...'))
+      .catch(err => reject(err));
     });
   }
-}
+
+ }
+
+ 
