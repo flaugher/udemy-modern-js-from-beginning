@@ -1,6 +1,21 @@
-document.getElementById('loan-form').addEventListener('submit', calculateResults);
+// This causes a submit to call calculate results immediately.
+// document.getElementById('loan-form').addEventListener('submit', calculateResults);
+// To implement the spinner, we replace the call with a function so we can delay calling 'calculateResults'.
+document.getElementById('loan-form').addEventListener('submit', function (e) {
+  // Ensure that any previous results are hidden.
+  document.getElementById('results').style.display = 'none';
 
-function calculateResults(e) {
+  // Then display loading spinner.
+  document.getElementById('loading').style.display = 'block';
+
+  // Wait for 2 seconds before calculating results.
+  setTimeout(calculateResults, 2000);
+
+  e.preventDefault();
+});
+
+// We removed the 'e' input arg since this is no longer the true event handler.
+function calculateResults() {
   // UI vars
   const elAmount = document.getElementById('amount');
   const elInterest = document.getElementById('interest');
@@ -24,15 +39,24 @@ function calculateResults(e) {
     elMonthlyPayment.value = monthly.toFixed(2);
     elTotalPayment.value = (monthly * calculatedPayments).toFixed(2);
     elTotalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
+
+    // To implement spinner, we add this code to show the results here and hide the loader.
+    document.getElementById('results').style.display = 'block';
+    document.getElementById('loading').style.display = 'none';
   } else {
     showError("Please check your numbers");
   }
 
+  // When adding the spinner feature, we can also get rid of this.
   e.preventDefault();
 }
 
 // Show error
 function showError(message) {
+  // To implement spinner, we add these two commands to hide the spinner and any previous results.
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('loading').style.display = 'none';
+
   // Create error div
   const errorDiv = document.createElement('div');
 

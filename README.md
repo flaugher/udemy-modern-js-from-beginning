@@ -14,6 +14,10 @@ Open an HTML file and click the Live Server link on the lower right.
 
 Section 4: DOM Projects - Although I have a folder for each section, all of my work is in the .html and .js files in the 4_1_project_files folder since the work was cummulative.
 
+Section 4 Load Calculator - All work is in 4_4 folder.
+
+Section 4 Number Guesser - 4_7 folder
+
 Section 7: Async JS - I did all of the work for the lessons up to 65 in the 7_8 folder.
 
 ## Techniques
