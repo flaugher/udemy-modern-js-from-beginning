@@ -37,3 +37,37 @@ EventObserver.prototype = {
     });
   }
 }
+
+// Event observer
+const click = new EventObserver();
+
+// Event listeners
+document.querySelector('.sub-ms').addEventListener('click', function () {
+  click.subscribe(getCurrMilliseconds);
+});
+
+document.querySelector('.unsub-ms').addEventListener('click', function () {
+  click.unsubscribe(getCurrMilliseconds);
+});
+
+document.querySelector('.sub-s').addEventListener('click', function () {
+  click.subscribe(getCurrSeconds);
+});
+
+document.querySelector('.unsub-s').addEventListener('click', function () {
+  click.unsubscribe(getCurrSeconds);
+});
+
+document.querySelector('.fire').addEventListener('click', function () {
+  click.fire();
+});
+
+// Click handlers
+const getCurrMilliseconds = function () {
+  console.log(`Current milliseconds: ${new Date().getMilliseconds()}`);
+}
+
+const getCurrSeconds = function () {
+  console.log(`Current seconds: ${new Date().getSeconds()}`);
+}
+
