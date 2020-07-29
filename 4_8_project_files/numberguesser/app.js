@@ -10,7 +10,7 @@ GAME FUNCTION:
 // Game values
 let min = 1,
   max = 10,
-  winningNum = 2,
+  winningNum = getRandomNum(min, max),
   guessesLeft = 3;
 
 // UI Elements
@@ -24,6 +24,19 @@ const game = document.querySelector('#game'),
 // Assign UI min and max
 minNum.textContent = min;
 maxNum.textContent = max;
+
+// Play again event listener
+game.addEventListener('mousedown', function (e) {
+  // We have to listen to the mousedown event or else the window will reload without allowing
+  // us to see the message telling us we won.  Listening to the click event actually submits
+  // the form (i.e. it plays a new game) which is what prevents us from seeing the message.
+  //
+  // We have to be specific about our target or this listener will fire when we click anywhere
+  // within div#game.
+  if (e.target.className === 'play-again') {
+    window.location.reload();
+  }
+})
 
 // Listen for guess
 guessBtn.addEventListener('click', function () {
@@ -74,10 +87,23 @@ function gameOver(won, msg) {
   message.style.color = color;
   // Set message
   setMessage(msg);
+
+  // Play again?
+  guessBtn.value = 'Play again?';
+  guessBtn.className += 'play-again';
+  // Since this class is added after the page loads, we need to use event delegation, meaning we have to add
+  // the listener onto a parent.
+
 }
 
 // Set message
 function setMessage(msg, color) {
   message.style.color = color;
   message.textContent = msg;
+}
+
+function getRandomNum(min, max) {
+  // This function will get hoisted to the top of the module.
+  // This returns a decimal between 0 and 9 offset by the minimum number.
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
