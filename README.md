@@ -18,6 +18,8 @@ Section 4 Load Calculator - All work is in 4_4 folder.
 
 Section 4 Number Guesser - 4_8 folder
 
+Section 6 OOP Book List - 6_1 folder
+
 Section 7: Async JS - I did all of the work for the lessons up to 65 in the 7_8 folder.
 
 ## Techniques
