@@ -45,6 +45,14 @@ UI.prototype.showAlert = function (message, className) {
   }, 3000);
 }
 
+UI.prototype.deleteBookFromList = function (target) {
+  // Go up two elements, from the anchor inside the column to the column in the row, in order to delete the row
+  if (target.className === 'delete') {
+    // Traverse the DOM up two levels
+    target.parentElement.parentElement.remove();
+  }
+}
+
 // Clear fields
 UI.prototype.clearForm = function () {
   document.getElementById('title').value = '';
@@ -52,7 +60,7 @@ UI.prototype.clearForm = function () {
   document.getElementById('isbn').value = '';
 }
 
-// Event Listeners
+// Event Listener for adding a book
 document.getElementById('book-form').addEventListener('submit', function (e) {
   // Get form values.
   const title = document.getElementById('title').value,
@@ -79,3 +87,16 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
 
   e.preventDefault();
 })
+
+// If you have a page element like the "X" delete button that will show up on the page and have
+// the same class or something that is added dynamically because it's not there when the page
+// loads, you have to use event delegation.
+
+// Event listener for deleting a book
+document.getElementById('book-list').addEventListener('click', function (e) {
+  const ui = new UI();
+  ui.deleteBookFromList(e.target);
+  ui.showAlert('Book Removed!', 'success');
+
+  e.preventDefault();
+});
