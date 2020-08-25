@@ -57,6 +57,49 @@ class UI {
   }
 }
 
+// Local Storage
+class Store {
+  /*
+  Static methods aren't called on instances of the class. Instead, they're called on the class itself. These are often utility functions, such as functions that create or clone objects.
+  */
+  static getBooks() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+    return books;
+  }
+
+  static displayBooks() {
+    const books = Store.getBooks();
+    books.forEach(function (book) {
+      const ui = new UI;
+      ui.addBookToList(book);
+    });
+  }
+
+  static addBook(book) {
+    const books = Store.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static removeBook(isbn) {
+    const books = Store.getBooks();
+    books.forEach(function (book, index) {
+      if (book.isbn === isbn) {
+        books.splice(index, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+}
+
+// DOM/page load event
+document.addEventListener('DOMContentLoaded', Store.displayBooks);
+
 // Event Listener for adding a book
 document.getElementById('book-form').addEventListener('submit', function (e) {
   // Get form values.
@@ -76,6 +119,8 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
   } else {
     // Add book to list
     ui.addBookToList(book);
+    // Add book to local storage
+    Store.addBook(book);
     // Show 'success' alert
     ui.showAlert("Book added!", 'success');
     // Clear form
@@ -92,7 +137,12 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
 // Event listener for deleting a book
 document.getElementById('book-list').addEventListener('click', function (e) {
   const ui = new UI();
+  // Remove book from UI
   ui.deleteBookFromList(e.target);
+  // Remove book from local storage
+  // Get value of <td> element that precedes the "x" icon
+  // which is the ISBN number.
+  Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
   ui.showAlert('Book Removed!', 'success');
 
   e.preventDefault();
