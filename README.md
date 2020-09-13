@@ -22,6 +22,18 @@ Section 6 OOP Book List - 6_1 folder
 
 Section 7: Async JS - I did all of the work for the lessons up to 65 in the 7_8 folder.
 
+Section 8: Github Finder - 8_1_project_files.  When using ES6 modules as in this project, if ES6 modules aren't supported in the browser, you'll have to use something like webpack + babel to transpile them.  They are what allows you to have one JS file include another.  In this project we just include multiple script takes in the index page.  But if you didn't want to do that and you wanted to have one JS file include another, you'd have to use a transpiler.  See:
+
+https://bit.ly/2QEAMrB
+https://bit.ly/2ENV9Af
+https://bit.ly/2QGXZcS
+
+Section 8 Github client ID and secret:
+Client ID
+b1aa840a1b97bc69fcb3
+Client Secret
+4333be80e459d49ad77be1eb52311586e5c7f34b
+
 ## Techniques
 
 3_3_project_files/js_sandbox/index.html:
