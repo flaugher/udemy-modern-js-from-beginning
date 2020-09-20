@@ -31,4 +31,39 @@ class UI {
       <div id="repos"></div>
     `;
   }
+
+  clearProfile() {
+    // You could do this to get rid of an alert if the user clears the search box but Brad
+    // prefers to use a timeout function.
+    // this.clearAlert()
+    this.profile.innerHTML = '';
+  }
+
+  showAlert(message, className) {
+    // Clear any previous alerts
+    this.clearAlert();
+
+    const div = document.createElement('div');
+    div.className = className;
+    div.appendChild(document.createTextNode(message));
+    // Get parent of place where you want to insert the div
+    // He added the 'searchContainer class to the target div solely so that he could locate that div in this code.
+    const container = document.querySelector('.searchContainer');
+    // Get search div
+    const search = document.querySelector('.search');
+    // Insert div containing the alert before the search div
+    container.insertBefore(div, search);
+    // Remove alert after 3 seconds
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
+
+  // Clear alert message each time it's triggered so that alerts don't "pile up"
+  clearAlert() {
+    const currentAlert = document.querySelector('.alert');
+    if (currentAlert) {
+      currentAlert.remove();
+    }
+  }
 }
